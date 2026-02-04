@@ -1,289 +1,886 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wendell de Sousa Gomes | Portfólio</title>
 
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background-color: #f4f6f8;
-      color: #333;
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --brand:#0a2540;
+      --line:#e5e7eb;
+      --chip:#eef2ff;
+      --shadow: 0 10px 30px rgba(2, 8, 23, .08);
+      --shadow2: 0 6px 18px rgba(2, 8, 23, .10);
+      --radius: 16px;
     }
 
-    header {
-      background: #0a2540;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    /* ===== Top Bar ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(246, 247, 251, .72);
+      border-bottom: 1px solid rgba(229, 231, 235, .7);
     }
-
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
+    .topbar .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
     }
-
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
     }
-
-    h2 {
-      color: #0a2540;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 10px;
+    .brand .dot{
+      width:10px;
+      height:10px;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(10, 37, 64, .12);
     }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    a {
-      color: #0a2540;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== CONTATO ===== */
-    .info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-
-    .info div {
-      background: #f9fafb;
-      padding: 15px;
-      border-radius: 6px;
-    }
-
-    /* ===== EXPERIÊNCIA ===== */
-    .experience {
-      margin-bottom: 30px;
-    }
-
-    .title-with-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 5px;
-    }
-
-    .logo {
-      height: 28px;
-    }
-
-    /* ===== PROJETOS ===== */
-    .projects-carousel {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 10px 0;
-    }
-
-    .projects-carousel::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .projects-carousel::-webkit-scrollbar-thumb {
-      background: #0a2540;
-      border-radius: 4px;
-    }
-
-    .project-card {
-      min-width: 280px;
-      background: #f9fafb;
-      border-radius: 8px;
-      padding: 15px;
-      flex-shrink: 0;
-    }
-
-    .project-card img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .project-card h3 {
-      margin: 8px 0 5px 0;
-      color: #0a2540;
-    }
-
-    .project-card p {
+    .brand strong{
       font-size: 14px;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    nav a:hover{
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(2,8,23,.04);
+      color: var(--text);
+    }
+
+    /* ===== Hero ===== */
+    header{
+      max-width: 1100px;
+      margin: 22px auto 0;
+      padding: 0 16px;
+    }
+    .hero{
+      background: linear-gradient(135deg, rgba(10,37,64,.95), rgba(2,6,23,.95));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-60px -80px auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), rgba(255,255,255,0));
+      transform: rotate(10deg);
+    }
+    .hero .grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .hero h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: .2px;
+    }
+    .hero p{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.85);
+      font-size: 14px;
+      max-width: 62ch;
+    }
+    .chips{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.92);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .hero .cta{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .btn{
+      width: 100%;
+      text-decoration: none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color:#fff;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ background: rgba(255,255,255,.14); }
+    .btn.secondary{
+      background: transparent;
+      border-color: rgba(255,255,255,.24);
+      color: rgba(255,255,255,.92);
+      font-weight: 600;
+    }
+    .btn.secondary:hover{ background: rgba(255,255,255,.08); }
+
+    /* ===== Sections ===== */
+    main{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+    .section{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-top: 18px;
+      border: 1px solid rgba(229,231,235,.7);
+    }
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .muted{ color: var(--muted); }
+
+    /* ===== Contact grid ===== */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .contact-card{
+      padding: 12px;
+      border-radius: 14px;
+      background: #fafafa;
+      border: 1px solid rgba(229,231,235,.8);
+      min-height: 64px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .contact-card .icon{
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      background: rgba(10,37,64,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 14px;
+    }
+    .contact-card a{ color: var(--brand); }
+
+    /* ===== Experience ===== */
+    .exp{
+      display:flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .exp-item{
+      border: 1px solid rgba(229,231,235,.8);
+      border-radius: 16px;
+      padding: 14px;
+      background: #fbfbfb;
+    }
+    .exp-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-bottom: 8px;
     }
-
-    .project-card span {
+    .exp-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .logo{
+      height: 26px;
+      width: auto;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .role{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .badge{
+      background: rgba(10,37,64,.08);
+      color: var(--brand);
+      border: 1px solid rgba(10,37,64,.12);
+      padding: 4px 8px;
+      border-radius: 999px;
       font-size: 12px;
-      color: #555;
-      font-weight: bold;
+      font-weight: 700;
+    }
+    .exp-item ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--text);
     }
 
-    /* ===== LISTAS COM LOGO ===== */
-    .list-logo li {
-      display: flex;
-      align-items: center;
+    /* ===== Education & Courses ===== */
+    .list-logo{
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display:grid;
       gap: 10px;
+    }
+    .list-logo li{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(229,231,235,.8);
+      background: #fbfbfb;
+    }
+    .list-logo li img{
+      height: 26px;
+      width: auto;
+    }
+
+    /* ===== Projects (Modern carousel) ===== */
+    .projects-wrap{
+      position: relative;
+    }
+
+    .projects-header{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-bottom: 10px;
     }
 
-    footer {
-      background: #0a2540;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
+    .projects-note{
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .carousel{
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(229,231,235,.75);
+      background: #fbfbfb;
+    }
+
+    .track{
+      display:flex;
+      transition: transform 500ms ease;
+      will-change: transform;
+    }
+
+    .slide{
+      width: 100%;
+      flex: 0 0 100%;
+      padding: 14px;
+    }
+
+    .project-card{
+      border-radius: 16px;
+      overflow:hidden;
+      background: #fff;
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(229,231,235,.75);
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      min-height: 220px;
+    }
+
+    .project-media{
+      background: #0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px;
+    }
+
+    .project-media img{
+      width: 100%;
+      height: 100%;
+      max-height: 240px;
+      object-fit: cover; /* mantém bonito sem ficar gigante */
+      border-radius: 12px;
+    }
+
+    .project-body{
+      padding: 14px 14px 16px;
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-body h3{
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: .2px;
+      color: var(--brand);
+    }
+
+    .project-body p{
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tags{
+      margin-top: auto;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag{
+      background: #f1f5f9;
+      border: 1px solid rgba(148,163,184,.35);
+      color: #0f172a;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* carousel controls */
+    .controls{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+    }
+    .icon-btn{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(229,231,235,.9);
+      background: #fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 2px 10px rgba(2,8,23,.06);
+    }
+    .icon-btn:hover{ background:#f8fafc; }
+
+    .dots{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 0 0;
+    }
+    .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(10,37,64,.35);
+      background: rgba(10,37,64,.15);
+      cursor:pointer;
+    }
+    .dot.active{
+      width: 22px;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    footer{
+      max-width: 1100px;
+      margin: 0 auto 30px;
+      padding: 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-card{
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid rgba(229,231,235,.75);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: 0 10px 30px rgba(2, 8, 23, .06);
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 860px){
+      .hero .grid{ grid-template-columns: 1fr; }
+      .hero .cta{ align-items: stretch; }
+      .contact-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-card{ grid-template-columns: 1fr; }
+      .project-media img{ max-height: 220px; }
+    }
+    @media (max-width: 460px){
+      header{ margin-top: 14px; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .section{ padding: 18px; }
+      .hero{ padding: 22px 18px; }
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <h1>Wendell de Sousa Gomes</h1>
-  <p>Técnico de TI • Análise de Dados • Projetos • Power BI</p>
-</header>
-
-<section>
-  <h2>Sobre Mim</h2>
-  <p>
-    Técnico de TI com experiência em análise de dados, desenvolvimento de relatórios,
-    utilização de DAX no Power BI, gestão de qualidade da informação e apoio em projetos
-    tecnológicos. Atuação em ambientes corporativos com foco em resultados, organização
-    de dados e suporte a times operacionais e estratégicos.
-  </p>
-</section>
-
-<section>
-  <h2>Objetivo Profissional</h2>
-  <p>
-    Atuar em áreas relacionadas à Tecnologia da Informação, análise de sistemas,
-    projetos, relatórios e soluções orientadas a dados.
-  </p>
-</section>
-
-<section>
-  <h2>Projetos</h2>
-
-  <div class="projects-carousel">
-    <div class="project-card">
-      <img src="img/projeto1.png.JPG" alt="Projeto Power BI">
-      <h3>Indicadores Regionais – Telecom</h3>
-      <p>Dashboard para acompanhamento de metas, backlog e eficiência operacional.</p>
-      <span>Power BI • DAX • Dados</span>
-    </div>
-
-    <div class="project-card">
-      <img src="img/projeto2.png.JPG" alt="Projeto Migrações">
-      <h3>Controle de Migrações</h3>
-      <p>Monitoramento de status, pendências e indicadores críticos.</p>
-      <span>Power BI • Telecom</span>
-    </div>
-
-    <div class="project-card">
-      <img src="img/projeto3.png.JPG" alt="Projeto Regional">
-      <h3>Atividades por Regional</h3>
-      <p>Análise de produtividade, eficiência e status técnico por região.</p>
-      <span>Power BI • Gestão</span>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="dot"></div>
+        <strong>Wendell de Sousa Gomes</strong>
+      </div>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#formacao">Formação</a>
+      </nav>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Informações de Contato</h2>
-  <div class="info">
-    <div>📍 São Paulo – SP</div>
-    <div>📞 (11) 9 1927-6737</div>
-    <div>📧 wendell_gomes28@hotmail.com</div>
-    <div>
-      🔗 <a href="https://www.linkedin.com/in/wendell-gomes-a8885a231/" target="_blank">
-        LinkedIn
-      </a>
+  <header>
+    <div class="hero">
+      <div class="grid">
+        <div>
+          <h1>Wendell de Sousa Gomes</h1>
+          <p>
+            Técnico de TI com foco em <b>análise de dados</b>, relatórios e projetos.
+            Experiência com Power BI (DAX), qualidade da informação e suporte em ambientes corporativos.
+          </p>
+          <div class="chips">
+            <div class="chip">Power BI • DAX</div>
+            <div class="chip">Análise de Dados</div>
+            <div class="chip">Suporte B2B</div>
+            <div class="chip">Telecom</div>
+            <div class="chip">Excel</div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="https://www.linkedin.com/in/wendell-gomes-a8885a231/" target="_blank" rel="noopener noreferrer">
+            🔗 LinkedIn
+          </a>
+          <a class="btn secondary" href="#contato">
+            📩 Contato rápido
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section>
-  <h2>Experiência Profissional</h2>
+  <main>
+    <section id="sobre" class="section">
+      <h2>Sobre</h2>
+      <p class="muted" style="margin:0;">
+        Atuo em TI com experiência em suporte, projetos e dados. Crio painéis e relatórios para
+        acompanhamento de indicadores, eficiência operacional e controle de atividades, com foco em
+        organização, comunicação e entrega.
+      </p>
+    </section>
 
-  <div class="experience">
-    <div class="title-with-logo">
-      <img src="img/tell.png.JPG" class="logo">
-      <strong>Tell Telecomunicações</strong>
+    <section id="projetos" class="section">
+      <div class="projects-header">
+        <div>
+          <h2 style="margin-bottom:6px;">Projetos em Power BI</h2>
+          <p class="projects-note">Carrossel automático (pausa ao passar o mouse). Use as setas para navegar.</p>
+        </div>
+
+        <div class="controls">
+          <button class="icon-btn" id="prevBtn" aria-label="Projeto anterior">←</button>
+          <button class="icon-btn" id="nextBtn" aria-label="Próximo projeto">→</button>
+        </div>
+      </div>
+
+      <div class="projects-wrap">
+        <div class="carousel" id="carousel">
+          <div class="track" id="track">
+            <!-- Slide 1 -->
+            <div class="slide">
+              <div class="project-card">
+                <div class="project-media">
+                  <img src="img/projeto1.png.JPG" alt="Indicadores Regionais - Power BI">
+                </div>
+                <div class="project-body">
+                  <h3>Indicadores Regionais – Telecom</h3>
+                  <p>Dashboard para metas, backlog e eficiência por regional, apoiando tomada de decisão e rotina operacional.</p>
+                  <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">KPIs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <div class="project-card">
+                <div class="project-media">
+                  <img src="img/projeto2.png.JPG" alt="Controle de Migrações - Power BI">
+                </div>
+                <div class="project-body">
+                  <h3>Controle de Migrações</h3>
+                  <p>Monitoramento de migrações com status, pendências e indicadores críticos para gestão operacional.</p>
+                  <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Operações</span>
+                    <span class="tag">Telecom</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+              <div class="project-card">
+                <div class="project-media">
+                  <img src="img/projeto3.png.JPG" alt="Atividades por Regional - Power BI">
+                </div>
+                <div class="project-body">
+                  <h3>Atividades por Regional</h3>
+                  <p>Análise de atividades técnicas com produtividade, eficiência e status por região e por cliente.</p>
+                  <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Gestão</span>
+                    <span class="tag">Insights</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="dots" id="dots" aria-label="Indicadores do carrossel">
+          <!-- dots gerados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <h2>Contato</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">📍</div>
+          <div>
+            <div style="font-weight:800;">Local</div>
+            <div class="muted">São Paulo – SP</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon">📞</div>
+          <div>
+            <div style="font-weight:800;">Telefone</div>
+            <div class="muted">(11) 9 1927-6737</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <div>
+            <div style="font-weight:800;">E-mail</div>
+            <div class="muted">wendell_gomes28@hotmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon">🔗</div>
+          <div>
+            <div style="font-weight:800;">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/wendell-gomes-a8885a231/" target="_blank" rel="noopener noreferrer">
+              Acessar perfil
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <h2>Experiência Profissional</h2>
+
+      <div class="exp">
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">
+              <img src="img/tell.png.JPG" class="logo" alt="Tell">
+              <div>
+                <div style="font-weight:900;">Tell Telecomunicações</div>
+                <div class="role">
+                  <span class="badge">2024 – Atual</span>
+                  <span>Analista de Suporte B2B</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>Atuação em suporte técnico B2B com ferramentas corporativas.</li>
+            <li>Suporte às plataformas FIBRASIL, SIGITIM, VANTIVE e SAE.</li>
+            <li>Extração e análise de dados no Power BI.</li>
+            <li>Controle de migrações SPI e SPC e acompanhamento de IDs até migração do link.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">
+              <img src="img/telefonica.png.JPG" class="logo" alt="Telefônica">
+              <div>
+                <div style="font-weight:900;">TIS – Telefônica Segurança e Infraestrutura</div>
+                <div class="role">
+                  <span class="badge">2020 – 2023</span>
+                  <span>Analista de Projetos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>Relatórios analíticos em Excel e Power BI.</li>
+            <li>Criação de dashboards com DAX.</li>
+            <li>Gestão de diretório de arquivos e controle de chamados.</li>
+            <li>Gestão da qualidade das informações com o time operacional da VIVO.</li>
+            <li>Elaboração de projetos (Grafana, controle de licenças) e documentação técnica.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="section">
+      <h2>Formação Acadêmica</h2>
+      <ul class="list-logo" style="margin-bottom:14px;">
+        <li>
+          <img src="img/unisa.png" class="logo" alt="UNISA">
+          <div>
+            <div style="font-weight:900;">Análise e Desenvolvimento de Sistemas</div>
+            <div class="muted">UNISA — Formado</div>
+          </div>
+        </li>
+      </ul>
+
+      <h2 style="margin-top:18px;">Formação Complementar & Cursos</h2>
+      <ul class="list-logo">
+        <li>
+          <img src="img/powerbi.png" class="logo" alt="Power BI">
+          <div>
+            <div style="font-weight:900;">Power BI — do Básico ao PRO</div>
+            <div class="muted">Concluído (05/2022)</div>
+          </div>
+        </li>
+
+        <li>
+          <img src="img/python.png" class="logo" alt="Python">
+          <div>
+            <div style="font-weight:900;">Python e SQL</div>
+            <div class="muted">Cursando</div>
+          </div>
+        </li>
+
+        <li>
+          <img src="img/cisco.png" class="logo" alt="Cisco">
+          <div>
+            <div style="font-weight:900;">Bootcamp CISCO</div>
+            <div class="muted">Concluído</div>
+          </div>
+        </li>
+
+        <li>
+          <img src="img/cisco.png" class="logo" alt="Cisco">
+          <div>
+            <div style="font-weight:900;">Maratona CISCO</div>
+            <div class="muted">Concluído</div>
+          </div>
+        </li>
+
+        <li>
+          <img src="img/yellowbelt.png" class="logo" alt="Yellow Belt">
+          <div>
+            <div style="font-weight:900;">Yellow Belt — Lean Six Sigma</div>
+            <div class="muted">03/2023 – 07/2023</div>
+          </div>
+        </li>
+
+        <li>
+          <img src="img/asam.png" class="logo" alt="ASAM">
+          <div>
+            <div style="font-weight:900;">ASAM — Centro de Apoio ao Jovem Aprendiz</div>
+            <div class="muted">Concluído</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Idiomas</h2>
+      <ul style="margin:0;">
+        <li>Inglês — Intermediário</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-card">
+      <div>© 2026 • Portfólio Profissional • Wendell de Sousa Gomes</div>
+      <div class="muted">Hospedado no GitHub Pages</div>
     </div>
-    <strong>Analista de Suporte B2B | 2024 – Atual</strong>
-    <ul>
-      <li>Suporte técnico B2B com ferramentas corporativas</li>
-      <li>Plataformas FIBRASIL, SIGITIM, VANTIVE e SAE</li>
-      <li>Extração e análise de dados em Power BI</li>
-      <li>Controle de migrações SPI e SPC</li>
-      <li>Acompanhamento de IDs até migração do link</li>
-    </ul>
-  </div>
+  </footer>
 
-  <div class="experience">
-    <div class="title-with-logo">
-      <img src="img/telefonica.png.JPG" class="logo">
-      <strong>TIS – Telefônica Segurança e Infraestrutura</strong>
-    </div>
-    <strong>Analista de Projetos | 2020 – 2023</strong>
-    <ul>
-      <li>Relatórios analíticos em Excel e Power BI</li>
-      <li>Dashboards com DAX</li>
-      <li>Gestão de arquivos e controle de chamados</li>
-      <li>Qualidade da informação junto ao time VIVO</li>
-      <li>Projetos em Grafana e controle de licenças</li>
-      <li>Documentação técnica</li>
-    </ul>
-  </div>
-</section>
+  <script>
+    // ===== Carousel Autoplay + Controls + Dots =====
+    (function () {
+      const track = document.getElementById("track");
+      const carousel = document.getElementById("carousel");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dotsWrap = document.getElementById("dots");
 
-<section>
-  <h2>Formação Acadêmica</h2>
-  <ul class="list-logo">
-    <li>
-      <img src="img/unisa.png" class="logo">
-      Análise e Desenvolvimento de Sistemas – UNISA (Formado)
-    </li>
-  </ul>
-</section>
+      const slides = Array.from(track.children);
+      const total = slides.length;
 
-<section>
-  <h2>Formação Complementar & Cursos</h2>
-  <ul class="list-logo">
-    <li><img src="img/powerbi.png" class="logo"> Power BI – do Básico ao PRO</li>
-    <li><img src="img/python.png" class="logo"> Python e SQL – Cursando</li>
-    <li><img src="img/cisco.png" class="logo"> Bootcamp CISCO</li>
-    <li><img src="img/cisco.png" class="logo"> Maratona CISCO</li>
-    <li><img src="img/yellowbelt.png" class="logo"> Yellow Belt – Lean Six Sigma</li>
-    <li><img src="img/asam.png" class="logo"> ASAM – Centro de Apoio ao Jovem Aprendiz</li>
-  </ul>
-</section>
+      let index = 0;
+      let timer = null;
+      const intervalMs = 3500;
 
-<section>
-  <h2>Idiomas</h2>
-  <ul>
-    <li>Inglês – Intermediário</li>
-  </ul>
-</section>
+      function setActiveDot(i) {
+        const dots = dotsWrap.querySelectorAll(".dot");
+        dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+      }
 
-<footer>
-  © 2026 • Portfólio Profissional • Wendell de Sousa Gomes
-</footer>
+      function goTo(i) {
+        index = (i + total) % total;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        setActiveDot(index);
+      }
 
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      // Build dots
+      dotsWrap.innerHTML = "";
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", `Ir para o projeto ${i + 1}`);
+        dot.addEventListener("click", () => {
+          goTo(i);
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+      }
+
+      // Autoplay
+      function start() {
+        if (timer) return;
+        timer = setInterval(next, intervalMs);
+      }
+      function stop() {
+        clearInterval(timer);
+        timer = null;
+      }
+      function restart() {
+        stop();
+        start();
+      }
+
+      // Buttons
+      prevBtn.addEventListener("click", () => { prev(); restart(); });
+      nextBtn.addEventListener("click", () => { next(); restart(); });
+
+      // Pause on hover (desktop)
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+
+      // Swipe on touch (mobile)
+      let startX = 0;
+      let dx = 0;
+      let dragging = false;
+
+      carousel.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        dx = 0;
+        dragging = true;
+        stop();
+      }, { passive: true });
+
+      carousel.addEventListener("touchmove", (e) => {
+        if (!dragging) return;
+        dx = e.touches[0].clientX - startX;
+      }, { passive: true });
+
+      carousel.addEventListener("touchend", () => {
+        dragging = false;
+        if (Math.abs(dx) > 45) {
+          dx < 0 ? next() : prev();
+        }
+        start();
+      });
+
+      // Init
+      goTo(0);
+      start();
+    })();
+  </script>
 </body>
 </html>
