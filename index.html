@@ -1,263 +1,288 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wendell de Sousa Gomes | Portfólio</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        header {
-            background: #0a2540;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-        header p {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-        section {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-        }
-        h2 {
-            color: #0a2540;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .info div {
-            background: #f9fafb;
-            padding: 15px;
-            border-radius: 6px;
-        }
-        .experience {
-            margin-bottom: 25px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0a2540;
-            color: #fff;
-        }
-        a {
-            color: #0a2540;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .projects-carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 10px 0;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wendell de Sousa Gomes | Portfólio</title>
 
-.projects-carousel::-webkit-scrollbar {
-  height: 6px;
-}
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
 
-.projects-carousel::-webkit-scrollbar-thumb {
-  background: #0a2540;
-  border-radius: 4px;
-}
+    header {
+      background: #0a2540;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-.project-card {
-  min-width: 280px;
-  background: #f9fafb;
-  border-radius: 8px;
-  padding: 15px;
-  flex-shrink: 0;
-}
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
 
-.project-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
 
-.project-card h3 {
-  margin: 5px 0;
-  font-size: 18px;
-}
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+    }
 
-.project-card p {
-  font-size: 14px;
-}
+    h2 {
+      color: #0a2540;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
 
-.project-card span {
-  font-size: 12px;
-  color: #555;
-  font-weight: bold;
-}
+    ul {
+      padding-left: 20px;
+    }
 
-.logo {
-  height: 28px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
+    a {
+      color: #0a2540;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    </style>
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== CONTATO ===== */
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .info div {
+      background: #f9fafb;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    /* ===== EXPERIÊNCIA ===== */
+    .experience {
+      margin-bottom: 30px;
+    }
+
+    .title-with-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    .logo {
+      height: 28px;
+    }
+
+    /* ===== PROJETOS ===== */
+    .projects-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .projects-carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .projects-carousel::-webkit-scrollbar-thumb {
+      background: #0a2540;
+      border-radius: 4px;
+    }
+
+    .project-card {
+      min-width: 280px;
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 15px;
+      flex-shrink: 0;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      margin: 8px 0 5px 0;
+      color: #0a2540;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .project-card span {
+      font-size: 12px;
+      color: #555;
+      font-weight: bold;
+    }
+
+    /* ===== LISTAS COM LOGO ===== */
+    .list-logo li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #0a2540;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Wendell de Sousa Gomes</h1>
-    <p>Técnico de TI • Análise de Dados • Projetos • Power BI</p>
+  <h1>Wendell de Sousa Gomes</h1>
+  <p>Técnico de TI • Análise de Dados • Projetos • Power BI</p>
 </header>
 
 <section>
-    <h2>Sobre Mim</h2>
-    <p>
-        Técnico de TI com experiência em análise de dados, desenvolvimento de relatórios,
-        utilização de DAX no Power BI, gestão de qualidade da informação e apoio em projetos
-        tecnológicos. Atuação em ambientes corporativos com foco em resultados, organização
-        de dados e suporte a times operacionais e estratégicos.
-    </p>
+  <h2>Sobre Mim</h2>
+  <p>
+    Técnico de TI com experiência em análise de dados, desenvolvimento de relatórios,
+    utilização de DAX no Power BI, gestão de qualidade da informação e apoio em projetos
+    tecnológicos. Atuação em ambientes corporativos com foco em resultados, organização
+    de dados e suporte a times operacionais e estratégicos.
+  </p>
 </section>
 
 <section>
-    <h2>Objetivo Profissional</h2>
-    <p>
-        Atuar em áreas relacionadas à Tecnologia da Informação, análise de sistemas,
-        projetos, relatórios e soluções orientadas a dados.
-    </p>
+  <h2>Objetivo Profissional</h2>
+  <p>
+    Atuar em áreas relacionadas à Tecnologia da Informação, análise de sistemas,
+    projetos, relatórios e soluções orientadas a dados.
+  </p>
 </section>
+
 <section>
   <h2>Projetos</h2>
 
   <div class="projects-carousel">
     <div class="project-card">
-      <img src="img/projeto1.png.JPG" alt="Indicadores Regionais">
+      <img src="img/projeto1.png.JPG" alt="Projeto Power BI">
       <h3>Indicadores Regionais – Telecom</h3>
-      <p>Dashboard em Power BI para acompanhamento de metas, backlog e eficiência por regional.</p>
-      <span>Power BI • DAX • Análise de Dados</span>
+      <p>Dashboard para acompanhamento de metas, backlog e eficiência operacional.</p>
+      <span>Power BI • DAX • Dados</span>
     </div>
 
     <div class="project-card">
-      <img src="img/projeto2.png.JPG" alt="Controle de Migrações">
+      <img src="img/projeto2.png.JPG" alt="Projeto Migrações">
       <h3>Controle de Migrações</h3>
-      <p>Monitoramento de migrações, status operacionais e indicadores críticos.</p>
-      <span>Power BI • Operações • Telecom</span>
+      <p>Monitoramento de status, pendências e indicadores críticos.</p>
+      <span>Power BI • Telecom</span>
     </div>
 
     <div class="project-card">
-      <img src="img/projeto3.png.JPG" alt="Atividades por Regional">
+      <img src="img/projeto3.png.JPG" alt="Projeto Regional">
       <h3>Atividades por Regional</h3>
-      <p>Análise de atividades técnicas, eficiência e status por região.</p>
-      <span>Power BI • Gestão • Dados</span>
+      <p>Análise de produtividade, eficiência e status técnico por região.</p>
+      <span>Power BI • Gestão</span>
     </div>
   </div>
 </section>
 
 <section>
-    <h2>Informações de Contato</h2>
-    <div class="info">
-        <div>📍 São Paulo – SP</div>
-        <div>📞 (11) 9 1927-6737</div>
-        <div>📧 wendell_gomes28@hotmail.com</div>
-        <div>
-            🔗 <a href="https://www.linkedin.com/in/wendell-gomes-a8885a231/" target="_blank">
-                LinkedIn
-            </a>
-        </div>
+  <h2>Informações de Contato</h2>
+  <div class="info">
+    <div>📍 São Paulo – SP</div>
+    <div>📞 (11) 9 1927-6737</div>
+    <div>📧 wendell_gomes28@hotmail.com</div>
+    <div>
+      🔗 <a href="https://www.linkedin.com/in/wendell-gomes-a8885a231/" target="_blank">
+        LinkedIn
+      </a>
     </div>
+  </div>
 </section>
 
 <section>
-    <h2>Experiência Profissional</h2>
+  <h2>Experiência Profissional</h2>
 
-    <div class="experience">
-        <h3><h3>
-  <img src="img/tell.png.JPG" class="logo">
-  Tell Telecomunicações
-</h3>
-</h3>
-        <strong>Analista de Suporte B2B | 2024 – Atual</strong>
-        <ul>
-            <li>Atuação em suporte técnico B2B com múltiplas ferramentas corporativas</li>
-            <li>Suporte às plataformas FIBRASIL, SIGITIM, VANTIVE e SAE</li>
-            <li>Extração de dados no Power BI</li>
-            <li>Controle de migrações SPI e SPC</li>
-            <li>Acompanhamento das etapas de um ID até migração do link</li>
-        </ul>
+  <div class="experience">
+    <div class="title-with-logo">
+      <img src="img/tell.png.JPG" class="logo">
+      <strong>Tell Telecomunicações</strong>
     </div>
-
-    <div class="experience">
-        <h3><h3>
-  <img src="img/telefonica.png.JPG" class="logo">
-  TIS – Telefônica Segurança e Infraestrutura
-</h3>
-</h3>
-        <strong>Analista de Projetos | 2020 – 2023</strong>
-        <ul>
-            <li>Desenvolvimento de relatórios analíticos em Excel e Power BI</li>
-            <li>Criação de dashboards com DAX</li>
-            <li>Gestão de diretório de arquivos e controle de chamados</li>
-            <li>Gestão da qualidade das informações em parceria com o time operacional da VIVO</li>
-            <li>Elaboração de projetos como Grafana e Controle de Licenças</li>
-            <li>Documentação técnica para apoio a desenvolvedores</li>
-        </ul>
-    </div>
-
-    <div class="experience">
-        <h3>Experiências Anteriores</h3>
-        <ul>
-            <li>Aprendiz Administrativo (2018 – 2020)</li>
-            <li>Atuação em análise documental, controle de acessos e rotinas administrativas</li>
-        </ul>
-    </div>
-</section>
-
-<section>
-    <h2>Formação Acadêmica</h2>
+    <strong>Analista de Suporte B2B | 2024 – Atual</strong>
     <ul>
-        <li>Análise e Desenvolvimento de Sistemas – UNISA (Formado)</li>
+      <li>Suporte técnico B2B com ferramentas corporativas</li>
+      <li>Plataformas FIBRASIL, SIGITIM, VANTIVE e SAE</li>
+      <li>Extração e análise de dados em Power BI</li>
+      <li>Controle de migrações SPI e SPC</li>
+      <li>Acompanhamento de IDs até migração do link</li>
     </ul>
+  </div>
+
+  <div class="experience">
+    <div class="title-with-logo">
+      <img src="img/telefonica.png.JPG" class="logo">
+      <strong>TIS – Telefônica Segurança e Infraestrutura</strong>
+    </div>
+    <strong>Analista de Projetos | 2020 – 2023</strong>
+    <ul>
+      <li>Relatórios analíticos em Excel e Power BI</li>
+      <li>Dashboards com DAX</li>
+      <li>Gestão de arquivos e controle de chamados</li>
+      <li>Qualidade da informação junto ao time VIVO</li>
+      <li>Projetos em Grafana e controle de licenças</li>
+      <li>Documentação técnica</li>
+    </ul>
+  </div>
 </section>
 
 <section>
-    <h2>Formação Complementar & Cursos</h2>
-    <ul>
-        <li>Power BI – do Básico ao PRO (05/2022)</li>
-        <li>Python e SQL – Cursando</li>
-        <li>Bootcamp CISCO</li>
-        <li>Maratona CISCO</li>
-        <li>Yellow Belt (03/2023 – 07/2023)</li>
-        <li>ASAM – Centro de Apoio ao Jovem Aprendiz</li>
-    </ul>
+  <h2>Formação Acadêmica</h2>
+  <ul class="list-logo">
+    <li>
+      <img src="img/unisa.png" class="logo">
+      Análise e Desenvolvimento de Sistemas – UNISA (Formado)
+    </li>
+  </ul>
 </section>
 
 <section>
-    <h2>Idiomas</h2>
-    <ul>
-        <li>Inglês – Intermediário</li>
-    </ul>
+  <h2>Formação Complementar & Cursos</h2>
+  <ul class="list-logo">
+    <li><img src="img/powerbi.png" class="logo"> Power BI – do Básico ao PRO</li>
+    <li><img src="img/python.png" class="logo"> Python e SQL – Cursando</li>
+    <li><img src="img/cisco.png" class="logo"> Bootcamp CISCO</li>
+    <li><img src="img/cisco.png" class="logo"> Maratona CISCO</li>
+    <li><img src="img/yellowbelt.png" class="logo"> Yellow Belt – Lean Six Sigma</li>
+    <li><img src="img/asam.png" class="logo"> ASAM – Centro de Apoio ao Jovem Aprendiz</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Idiomas</h2>
+  <ul>
+    <li>Inglês – Intermediário</li>
+  </ul>
 </section>
 
 <footer>
-    © 2026 • Portfólio Profissional • Wendell de Sousa Gomes
+  © 2026 • Portfólio Profissional • Wendell de Sousa Gomes
 </footer>
 
 </body>
