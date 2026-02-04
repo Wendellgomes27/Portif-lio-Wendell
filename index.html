@@ -67,6 +67,57 @@
         a:hover {
             text-decoration: underline;
         }
+        .projects-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+  background: #0a2540;
+  border-radius: 4px;
+}
+
+.project-card {
+  min-width: 280px;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 15px;
+  flex-shrink: 0;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.project-card p {
+  font-size: 14px;
+}
+
+.project-card span {
+  font-size: 12px;
+  color: #555;
+  font-weight: bold;
+}
+
+.logo {
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -93,6 +144,32 @@
         projetos, relatórios e soluções orientadas a dados.
     </p>
 </section>
+<section>
+  <h2>Projetos</h2>
+
+  <div class="projects-carousel">
+    <div class="project-card">
+      <img src="img/projeto1.jpg" alt="Indicadores Regionais">
+      <h3>Indicadores Regionais – Telecom</h3>
+      <p>Dashboard em Power BI para acompanhamento de metas, backlog e eficiência por regional.</p>
+      <span>Power BI • DAX • Análise de Dados</span>
+    </div>
+
+    <div class="project-card">
+      <img src="img/projeto2.jpg" alt="Controle de Migrações">
+      <h3>Controle de Migrações</h3>
+      <p>Monitoramento de migrações, status operacionais e indicadores críticos.</p>
+      <span>Power BI • Operações • Telecom</span>
+    </div>
+
+    <div class="project-card">
+      <img src="img/projeto3.jpg" alt="Atividades por Regional">
+      <h3>Atividades por Regional</h3>
+      <p>Análise de atividades técnicas, eficiência e status por região.</p>
+      <span>Power BI • Gestão • Dados</span>
+    </div>
+  </div>
+</section>
 
 <section>
     <h2>Informações de Contato</h2>
@@ -112,7 +189,11 @@
     <h2>Experiência Profissional</h2>
 
     <div class="experience">
-        <h3>Tell Telecomunicações</h3>
+        <h3><h3>
+  <img src="img/tell.png" class="logo">
+  Tell Telecomunicações
+</h3>
+</h3>
         <strong>Analista de Suporte B2B | 2024 – Atual</strong>
         <ul>
             <li>Atuação em suporte técnico B2B com múltiplas ferramentas corporativas</li>
@@ -124,7 +205,11 @@
     </div>
 
     <div class="experience">
-        <h3>TIS – Telefônica Segurança e Infraestrutura LTDA</h3>
+        <h3><h3>
+  <img src="img/telefonica.png" class="logo">
+  TIS – Telefônica Segurança e Infraestrutura
+</h3>
+</h3>
         <strong>Analista de Projetos | 2020 – 2023</strong>
         <ul>
             <li>Desenvolvimento de relatórios analíticos em Excel e Power BI</li>
